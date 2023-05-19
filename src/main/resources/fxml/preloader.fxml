@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efl.javafx.desktop.app.controller.PreloaderController">
+    <ImageView fitHeight="450.0" fitWidth="800.0">
+        <Image url="@../preload.png" />
+    </ImageView>
+    <Label fx:id="progressLabel" contentDisplay="CENTER" layoutX="200.0" layoutY="356.0" prefHeight="20.0" prefWidth="200.0" />
+    <JFXProgressBar fx:id="progressBar" layoutX="200.0" layoutY="341.0" prefHeight="5.0" prefWidth="400.0" progress="0.0" />
+</AnchorPane>

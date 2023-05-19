@@ -1,0 +1,9 @@
+#createAccount:hover,#findPassword:hover {
+  -fx-background-color: White;
+      -fx-text-fill: #b5b5b5;
+}
+
+#createAccount:hover,#findPassword:hover {
+    -fx-background-color: White;
+    -fx-text-fill: #333280;
+}

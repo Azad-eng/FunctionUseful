@@ -4,11 +4,13 @@ import com.efl.javafx.desktop.app.ChipView;
 import com.efl.javafx.desktop.app.FilterView;
 import com.efl.javafx.desktop.app.FilterView.Filter;
 import com.efl.javafx.desktop.app.SearchTextField;
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -64,7 +66,13 @@ public class FilterViewSkin<T> extends SkinBase<FilterView<T>> {
         view.filterTextProperty().addListener(it -> updateFilters());
         view.textFilterProviderProperty().addListener(it -> updateFilters());
 
-        VBox vBox = new VBox(headerBox, filterGroupsPane, filtersPane);
+        Button button = new Button("创建角色");
+        button.setOnAction(evt -> {
+
+        });
+        //button.setStyle("-fx-background-color: rgb(57,73,92);");
+        HBox hBox = new HBox(10, headerBox, button);
+        VBox vBox = new VBox(hBox, filterGroupsPane, filtersPane);
         vBox.getStyleClass().add("filter-container");
         vBox.setFillWidth(true);
 

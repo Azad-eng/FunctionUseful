@@ -8,7 +8,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
@@ -19,26 +18,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 import java.util.function.Predicate;
 
-/**
- * A view for presenting a set of predefined filter groups, each one with a list of filters.
- * The user can select one or more filters from each group. Elements found in the resulting
- * filtered list have to match ALL filters. The selected filters will be shown as "chips"
- * (see @link {@link ChipView}).
- * <p>
- * Items can be added via the {@link #getItems()} list. Table or list views have to use
- * the {@link #getFilteredItems()} list. This filtered list can also be wrapped via a
- * {@link SortedList} and then added to a table or list view.
- * </p>
- * <p>
- * An input field for filtering based on text input will appear as soon as a text filter provider
- * has been defined. See {@link #setTextFilterProvider(Callback)}.
- * </p>
- * <p>
- * Applications with additional filtering needs can utilize the {@link #additionalFilterPredicateProperty()}.
- * </p>
- *
- * @param <T> the type of the model objects filtered by the view
- */
 public class FilterView<T> extends Control {
 
     public FilterView() {

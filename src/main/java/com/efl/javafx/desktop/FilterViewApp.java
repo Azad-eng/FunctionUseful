@@ -8,9 +8,11 @@ import javafx.application.Application;
 import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,49 +24,49 @@ public class FilterViewApp extends Application {
     @Override
     public void start(Stage stage) {
         FilterView<Person> filterView = new FilterView<>();
-        filterView.setTitle("Title Here");
-        filterView.setSubtitle("Subtitle can be displayed here");
+        filterView.setTitle("用户管理系统");
+        filterView.setSubtitle("User Management System");
         filterView.setTextFilterProvider(text -> person -> person.getFirstName().toLowerCase().contains(text) || person.getLastName().toLowerCase().contains(text));
 
         TableView<Person> tableView = new TableView<>();
 
-        FilterGroup<Person> firstNameGroup = new FilterGroup<>("First Name");
-        FilterGroup<Person> lastNameGroup = new FilterGroup<>("Last Name");
-        FilterGroup<Person> birthdayGroup = new FilterGroup<>("Birthday");
-        FilterGroup<Person> roleGroup = new FilterGroup<>("Role");
+        //FilterGroup<Person> firstNameGroup = new FilterGroup<>("序号");
+        FilterGroup<Person> lastNameGroup = new FilterGroup<>("用户名");
+        FilterGroup<Person> birthdayGroup = new FilterGroup<>("日期");
+        FilterGroup<Person> roleGroup = new FilterGroup<>("角色");
 
-        firstNameGroup.getFilters().add(new Filter<Person>("Steve or Jennifer") {
-            @Override
-            public boolean test(Person person) {
-                switch (person.getFirstName()) {
-                    case "Steve":
-                    case "Jennifer":
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+        //firstNameGroup.getFilters().add(new Filter<Person>("Steve or Jennifer") {
+        //    @Override
+        //    public boolean test(Person person) {
+        //        switch (person.getFirstName()) {
+        //            case "Steve":
+        //            case "Jennifer":
+        //                return true;
+        //            default:
+        //                return false;
+        //        }
+        //    }
+        //});
 
-        firstNameGroup.getFilters().add(new Filter<Person>("Paul, Eric") {
-            @Override
-            public boolean test(Person person) {
-                switch (person.getFirstName()) {
-                    case "Paul":
-                    case "Eric":
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
-
-        firstNameGroup.getFilters().add(new Filter<Person>("Elizabeth") {
-            @Override
-            public boolean test(Person person) {
-                return person.getFirstName().equals("Elizabeth");
-            }
-        });
+        //firstNameGroup.getFilters().add(new Filter<Person>("Paul, Eric") {
+        //    @Override
+        //    public boolean test(Person person) {
+        //        switch (person.getFirstName()) {
+        //            case "Paul":
+        //            case "Eric":
+        //                return true;
+        //            default:
+        //                return false;
+        //        }
+        //    }
+        //});
+        //
+        //firstNameGroup.getFilters().add(new Filter<Person>("Elizabeth") {
+        //    @Override
+        //    public boolean test(Person person) {
+        //        return person.getFirstName().equals("Elizabeth");
+        //    }
+        //});
 
         lastNameGroup.getFilters().add(new Filter<Person>("Miller") {
             @Override
@@ -134,7 +136,7 @@ public class FilterViewApp extends Application {
             }
         });
 
-        filterView.getFilterGroups().setAll(firstNameGroup, lastNameGroup, birthdayGroup, roleGroup);
+        filterView.getFilterGroups().setAll(/*firstNameGroup,*/ lastNameGroup, roleGroup, birthdayGroup);
 
         SortedList<Person> sortedList = new SortedList<>(filterView.getFilteredItems());
         tableView.setItems(sortedList);
